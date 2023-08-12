@@ -846,10 +846,10 @@ class GEOMETRY extends ABSTRACT {
     this.srid = options.srid;
   }
   _stringify(value, options) {
-    return `ST_GeomFromText(${options.escape(wkx.Geometry.parseGeoJSON(value).toWkt())})`;
+    return `ST_GeomFromText(${options.escape(wkx.Geometry.parseGeoJSON(value).toWkt())},${this.srid})`;
   }
   _bindParam(value, options) {
-    return `ST_GeomFromText(${options.bindParam(wkx.Geometry.parseGeoJSON(value).toWkt())})`;
+    return `ST_GeomFromText(${options.bindParam(wkx.Geometry.parseGeoJSON(value).toWkt())},${this.srid})`;
   }
 }
 
@@ -889,10 +889,10 @@ class GEOGRAPHY extends ABSTRACT {
     this.srid = options.srid;
   }
   _stringify(value, options) {
-    return `ST_GeomFromText(${options.escape(wkx.Geometry.parseGeoJSON(value).toWkt())})`;
+    return `ST_GeomFromText(${options.escape(wkx.Geometry.parseGeoJSON(value).toWkt())},${this.srid})`;
   }
   _bindParam(value, options) {
-    return `ST_GeomFromText(${options.bindParam(wkx.Geometry.parseGeoJSON(value).toWkt())})`;
+    return `ST_GeomFromText(${options.bindParam(wkx.Geometry.parseGeoJSON(value).toWkt())},${this.srid})`;
   }
 }
 
